@@ -1,35 +1,29 @@
-[gd_scene load_steps=5 format=3 uid="uid://dsaj0uic6dcto"]
+[gd_scene load_steps=3 format=3 uid="uid://dsaj0uic6dcto"]
 
-[ext_resource type="Texture2D" uid="uid://c8hf07ing20cm" path="res://World/Bush.png" id="1_8h8xu"]
-[ext_resource type="Texture2D" uid="uid://4faipwbv7mer" path="res://Player/Player.png" id="2_bxyea"]
-[ext_resource type="Script" path="res://Player/Player.gd" id="2_y4lnu"]
-
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_hg5c3"]
-radius = 3.0
-height = 10.0
+[ext_resource type="PackedScene" uid="uid://ihvdacxi20jk" path="res://World/bush.tscn" id="2_7lpjd"]
+[ext_resource type="PackedScene" uid="uid://bfyhhgc1r7lf" path="res://Player/player.tscn" id="2_7ndpy"]
 
 [node name="World" type="Node2D"]
+y_sort_enabled = true
+metadata/_edit_lock_ = true
 
-[node name="Bush" type="Sprite2D" parent="."]
-position = Vector2(23, 22)
-texture = ExtResource("1_8h8xu")
+[node name="Player" parent="." instance=ExtResource("2_7ndpy")]
+position = Vector2(163, 93)
 
-[node name="Player" type="CharacterBody2D" parent="."]
-position = Vector2(168, 82)
-script = ExtResource("2_y4lnu")
-metadata/_edit_group_ = true
+[node name="Bush" parent="." instance=ExtResource("2_7lpjd")]
+position = Vector2(48, 100)
 
-[node name="Sprite2D" type="Sprite2D" parent="Player"]
-texture = ExtResource("2_bxyea")
-hframes = 62
+[node name="Bush2" parent="." instance=ExtResource("2_7lpjd")]
+position = Vector2(103, 137)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Player"]
-position = Vector2(1, 10)
-rotation = -1.5708
-shape = SubResource("CapsuleShape2D_hg5c3")
+[node name="Bush3" parent="." instance=ExtResource("2_7lpjd")]
+position = Vector2(92, 52)
 
-[node name="StaticBody2D" type="StaticBody2D" parent="."]
+[node name="Bush4" parent="." instance=ExtResource("2_7lpjd")]
+position = Vector2(235, 54)
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D"]
-position = Vector2(56, 0)
-polygon = PackedVector2Array(0, 168, 120, 168, 216, 160, 208, 72, 168, 16, 72, 16, 88, 96, 64, 128, -16, 112, -24, 88, -8, 16, 16, 0, 160, -8, 248, 64, 240, 152, 136, 192, 32, 200)
+[node name="Bush5" parent="." instance=ExtResource("2_7lpjd")]
+position = Vector2(240, 136)
+
+[node name="Bush6" parent="." instance=ExtResource("2_7lpjd")]
+position = Vector2(164, 53)
