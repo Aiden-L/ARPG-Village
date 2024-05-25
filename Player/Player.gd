@@ -1,5 +1,7 @@
 extends CharacterBody2D
 
+@onready var animationPlayer = $AnimationPlayer
+
 # 初始化调用
 func _ready():
 	print("Player is Ready")
