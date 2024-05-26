@@ -4,4 +4,5 @@ extends "res://Hitboxes and Hurtboxes/hit_box.gd"
 var knockback_vector = Vector2.ZERO
 
 func _ready():
-	self.damage = 0.2
+	# 继承自hit_box的值，self省略
+	damage = 0.4
