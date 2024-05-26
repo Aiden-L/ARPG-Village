@@ -6,7 +6,7 @@ extends CharacterBody2D
 @onready var animationState = animationTree.get("parameters/playback")
 
 # 移动速度
-const MAX_SPEED = 50.0
+const MAX_SPEED = 80.0
 # 移动加速度（运动开始和结束时逐渐加速和减速）
 const ACCELERATION = 500.0
 # 状态机变量
@@ -61,6 +61,7 @@ func roll_state(delta):
 func attack_state(delta):
 	velocity = Vector2.ZERO
 	animationState.travel("Attack")
-	
+
+# 攻击动画播放完成后调用的方法
 func attack_animation_finished():
 	state = MOVE
