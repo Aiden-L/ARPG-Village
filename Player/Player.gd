@@ -4,6 +4,7 @@ extends CharacterBody2D
 @onready var animationPlayer = $AnimationPlayer
 @onready var animationTree = $AnimationTree
 @onready var animationState = animationTree.get("parameters/playback")
+@onready var swordHitbox = $HitboxPivot/SwordHitBox
 
 # 移动速度
 const MAX_SPEED = 80.0
@@ -18,7 +19,10 @@ const ROLL_SPEED = 125
 
 # 初始化调用
 func _ready():
+	# 启动动画树
 	animationTree.active = true
+	# 将攻击方向和翻滚方向保持一致，后续帧持续更新
+	swordHitbox.knockback_vector = roll_vector
 	print("Player is Ready")
 
 # 状态机
@@ -37,8 +41,9 @@ func move_state(delta):
 	input_vector.y = Input.get_axis("ui_up", "ui_down")
 	
 	if input_vector != Vector2.ZERO:
-		# 确定翻滚方向
+		# 确定翻滚方向，攻击方向让其保持更新
 		roll_vector = input_vector
+		swordHitbox.knockback_vector = input_vector
 		# 根据动画树确定方向
 		animationTree.set("parameters/Idle/blend_position", input_vector)
 		animationTree.set("parameters/Run/blend_position", input_vector)

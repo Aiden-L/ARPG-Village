@@ -16,7 +16,7 @@ offset = Vector2(8, 8)
 
 [node name="HurtBox" parent="." instance=ExtResource("3_0p6ht")]
 collision_layer = 8
-collision_mask = 2
+collision_mask = 16
 
 [node name="CollisionShape2D" parent="HurtBox" index="0"]
 position = Vector2(8, 8)
