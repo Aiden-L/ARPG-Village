@@ -1,0 +1,14 @@
+[gd_scene load_steps=2 format=3 uid="uid://c6f87udactg8o"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ji8uh"]
+animations = [{
+"frames": [],
+"loop": false,
+"name": &"Animate",
+"speed": 15.0
+}]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D"]
+sprite_frames = SubResource("SpriteFrames_ji8uh")
+animation = &"Animate"
+offset = Vector2(0, -8)
