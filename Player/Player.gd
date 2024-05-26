@@ -55,10 +55,10 @@ func move_state(delta):
 	if Input.is_action_pressed("attack"):
 		state = ATTACK
 
-func roll_state(delta):
+func roll_state(_delta):
 	pass
 	
-func attack_state(delta):
+func attack_state(_delta):
 	velocity = Vector2.ZERO
 	animationState.travel("Attack")
 

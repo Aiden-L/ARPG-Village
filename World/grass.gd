@@ -10,7 +10,7 @@ func create_grass_effect():
 	# 将特效的位置放在本草的位置上
 	grassEffectInstance.global_position = global_position	
 
-func _on_hurt_box_area_entered(area):
+func _on_hurt_box_area_entered(_area):
 	create_grass_effect()
 	# 当帧结束时释放资源，非立即释放，立即释放的函数 free()
 	queue_free()
