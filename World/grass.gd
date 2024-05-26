@@ -1,9 +1,10 @@
 extends Node2D
 
+const GrassEffect = preload("res://Effects/grass_effect.tscn")
+
 func create_grass_effect():
 	# 实例化特效场景为一个节点
-	var grassEffect = load("res://Effects/grass_effect.tscn")
-	var grassEffectInstance = grassEffect.instantiate()
+	var grassEffectInstance = GrassEffect.instantiate()
 	# 获取到本场景的场景树，并为本草在场景中添加一个特效
 	var world_scene_tree = get_tree().current_scene
 	world_scene_tree.add_child(grassEffectInstance)
