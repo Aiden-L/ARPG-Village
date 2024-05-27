@@ -70,6 +70,7 @@ func move_state(delta):
 	
 	# 检测按键事件
 	if Input.is_action_pressed("roll"):
+		PlayerStats.max_health -= 1
 		state = ROLL
 	if Input.is_action_pressed("attack"):
 		state = ATTACK
