@@ -1,6 +1,7 @@
-[gd_scene load_steps=3 format=3 uid="uid://ihvdacxi20jk"]
+[gd_scene load_steps=4 format=3 uid="uid://ihvdacxi20jk"]
 
 [ext_resource type="Texture2D" uid="uid://c8hf07ing20cm" path="res://World/Bush.png" id="1_hf036"]
+[ext_resource type="Texture2D" uid="uid://bvenboij6cnq2" path="res://Shadows/LargeShadow.png" id="2_w6n2a"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_wpgsf"]
 radius = 7.0
@@ -15,3 +16,7 @@ texture = ExtResource("1_hf036")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 rotation = -1.5708
 shape = SubResource("CapsuleShape2D_wpgsf")
+
+[node name="Sprite2DShadow" type="Sprite2D" parent="."]
+position = Vector2(0, 3)
+texture = ExtResource("2_w6n2a")
