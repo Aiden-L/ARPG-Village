@@ -16,7 +16,7 @@ enum {IDLE, WANDER, CHASE}
 var state = IDLE
 
 func _physics_process(delta):
-	# 设置击退效果
+	# 设置击退效果，（摩擦力）
 	velocity = velocity.move_toward(Vector2.ZERO, FRICTION * delta)
 	# 状态转换
 	match state:

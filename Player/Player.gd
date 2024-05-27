@@ -23,7 +23,11 @@ func _ready():
 	animationTree.active = true
 	# 将攻击方向和翻滚方向保持一致，后续帧持续更新
 	swordHitbox.knockback_vector = roll_vector
-	print("Player is Ready")
+	# 设置角色血量（这里使用设置的全局变量PlayerStats）
+	PlayerStats.health = 10
+	# 角色死亡判断（这里使用设置的全局变量PlayerStats）
+	PlayerStats.connect("no_health", queue_free)
+	# print("Player is Ready")
 
 # 状态机
 func _physics_process(delta):
@@ -85,3 +89,7 @@ func roll_animation_finished():
 # 攻击动画播放完成后调用的方法
 func attack_animation_finished():
 	state = MOVE
+
+# 角色受伤
+func _on_hurt_box_area_entered(area):
+	PlayerStats.health -= 1
