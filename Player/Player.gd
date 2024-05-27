@@ -5,6 +5,7 @@ extends CharacterBody2D
 @onready var animationTree = $AnimationTree
 @onready var animationState = animationTree.get("parameters/playback")
 @onready var swordHitbox = $HitboxPivot/SwordHitBox
+@onready var hurtbox = $HurtBox
 
 # 移动速度
 const MAX_SPEED = 80.0
@@ -93,3 +94,5 @@ func attack_animation_finished():
 # 角色受伤
 func _on_hurt_box_area_entered(area):
 	PlayerStats.health -= 1
+	hurtbox.start_invincibility(0.5)
+	hurtbox.create_hit_effect()

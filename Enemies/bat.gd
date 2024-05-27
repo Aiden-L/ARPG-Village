@@ -3,7 +3,7 @@ extends CharacterBody2D
 @onready var stats = $Stats
 const EnemyDeathEffect = preload("res://Effects/enemy_death_effect.tscn")
 @onready var player_detection_zone = $PlayerDetectionZone
-
+@onready var hurt_box = $HurtBox
 @onready var animated_sprite = $AnimatedSprite
 
 @export var ACCELERATION = 300
@@ -43,6 +43,7 @@ func _on_hurt_box_area_entered(area):
 	velocity = area.knockback_vector * 120
 	# 收到伤害，扣血
 	stats.health -= area.damage
+	hurt_box.create_hit_effect()
 	print(stats.health)
 
 # 当接收到信号 "no_health"
