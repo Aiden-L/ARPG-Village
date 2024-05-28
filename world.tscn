@@ -947,13 +947,13 @@ position = Vector2(160, 168)
 position = Vector2(232, 168)
 
 [node name="Bat" parent="Ysort" instance=ExtResource("7_xnabx")]
-position = Vector2(136, 80)
+position = Vector2(39, 55)
 
 [node name="Bat2" parent="Ysort" instance=ExtResource("7_xnabx")]
 position = Vector2(296, 120)
 
 [node name="Bat3" parent="Ysort" instance=ExtResource("7_xnabx")]
-position = Vector2(264, 40)
+position = Vector2(204, 25)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
