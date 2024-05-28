@@ -1,0 +1,16 @@
+[gd_scene load_steps=2 format=3 uid="uid://dgngrht4i1i5o"]
+
+[ext_resource type="Script" path="res://camera_2d.gd" id="1_7c2nl"]
+
+[node name="Camera2D" type="Camera2D"]
+position = Vector2(160, 90)
+process_callback = 0
+position_smoothing_enabled = true
+script = ExtResource("1_7c2nl")
+
+[node name="Limits" type="Node" parent="."]
+
+[node name="Marker2DTopLeft" type="Marker2D" parent="Limits"]
+
+[node name="Marker2DBottomRight" type="Marker2D" parent="Limits"]
+position = Vector2(320, 180)
