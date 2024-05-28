@@ -5,6 +5,8 @@ const EnemyDeathEffect = preload("res://Effects/enemy_death_effect.tscn")
 @onready var player_detection_zone = $PlayerDetectionZone
 @onready var hurt_box = $HurtBox
 @onready var animated_sprite = $AnimatedSprite
+# 设置软碰撞
+@onready var soft_collision = $SoftCollision
 
 @export var ACCELERATION = 300
 @export var MAX_SPEED = 50
@@ -31,6 +33,9 @@ func _physics_process(delta):
 			if player != null:
 				var direction = (player.global_position - global_position).normalized()
 				velocity = velocity.move_toward(direction * MAX_SPEED, ACCELERATION * delta)
+	# 设置软碰撞
+	if soft_collision.is_colliding():
+		velocity += soft_collision.get_push_vector() * delta * 400
 	move_and_slide()
 
 # 发现player追逐player

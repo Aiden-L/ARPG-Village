@@ -91,6 +91,7 @@ roll={
 2d_physics/layer_5="PlayerHitBox"
 2d_physics/layer_6="EnemyHitBox"
 2d_physics/layer_7="Enemy"
+2d_physics/layer_8="SoftCollisions"
 
 [rendering]
 
