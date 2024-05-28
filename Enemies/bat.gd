@@ -9,6 +9,8 @@ const EnemyDeathEffect = preload("res://Effects/enemy_death_effect.tscn")
 @onready var soft_collision = $SoftCollision
 # wander controller
 @onready var wander_controller = $WanderController
+# bat 闪烁
+@onready var animation_player = $AnimationPlayer
 
 @export var ACCELERATION = 300
 @export var MAX_SPEED = 50
@@ -82,6 +84,7 @@ func _on_hurt_box_area_entered(area):
 	# 收到伤害，扣血
 	stats.health -= area.damage
 	hurt_box.create_hit_effect()
+	hurt_box.start_invincibility(0.4)
 	print(stats.health)
 
 # 当接收到信号 "no_health"
@@ -91,3 +94,10 @@ func _on_stats_no_health():
 	var enemyDeathEffect = EnemyDeathEffect.instantiate()
 	get_parent().add_child(enemyDeathEffect)
 	enemyDeathEffect.global_position = global_position
+
+# bat 闪烁
+func _on_hurt_box_invincibility_started():
+	animation_player.play("Start")
+
+func _on_hurt_box_invincibility_ended():
+	animation_player.play("Stop")

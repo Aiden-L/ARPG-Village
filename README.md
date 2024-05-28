@@ -35,3 +35,4 @@ Godot Version = 4.2
 
 ### 问题记录
 - p20: Godot 3 中似乎存在每次运行游戏时，随机数种子不变的问题，解决方法是在任意位置调用`randomize()`方法， 但 Godot 4 中似乎不存在这个问题
+- p21: Godot 加载同源资源的时候会共享该资源，因此，当制作闪烁动画的时候，当一个bat闪烁，其他也会闪烁，这个问题可以通过设置`meterial/Resource/Local to Scene`实现独立单例

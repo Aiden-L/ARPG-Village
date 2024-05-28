@@ -5,8 +5,11 @@ extends CharacterBody2D
 @onready var animationTree = $AnimationTree
 @onready var animationState = animationTree.get("parameters/playback")
 @onready var swordHitbox = $HitboxPivot/SwordHitBox
-@onready var hurtbox = $HurtBox
+@onready var animation_player_blink = $AnimationPlayerBlink
 
+@onready var hurtbox = $HurtBox
+# 受伤音效
+const PLAYER_HURT_SOUND = preload("res://Player/player_hurt_sound.tscn")
 # 移动速度
 const MAX_SPEED = 80.0
 # 移动加速度（运动开始和结束时逐渐加速和减速）
@@ -92,7 +95,15 @@ func attack_animation_finished():
 	state = MOVE
 
 # 角色受伤
-func _on_hurt_box_area_entered(_area):
-	PlayerStats.health -= 1
+func _on_hurt_box_area_entered(area):
+	PlayerStats.health -= area.damage
 	hurtbox.start_invincibility(0.5)
 	hurtbox.create_hit_effect()
+	get_tree().current_scene.add_child(PLAYER_HURT_SOUND.instantiate())
+
+# 角色在受伤间隙（无敌时）闪烁
+func _on_hurt_box_invincibility_started():
+	animation_player_blink.play("Start")
+
+func _on_hurt_box_invincibility_ended():
+	animation_player_blink.play("Stop")
