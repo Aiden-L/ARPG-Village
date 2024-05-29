@@ -1,11 +1,18 @@
 # ARPG-Village
+
 This is a ARPG game demo called Village. Using Godot Engine.
 
 Godot Version = 4.2
 
 ### 项目说明
-
+- 该项目于学习Godot教程时创建，用于记录学习过程，包含代码的关键注释，以及 Godot 4 相对于 Godot 3 改变的解决方法
+- 原作者教程视频： https://www.youtube.com/watch?v=mAbG8Oi-SvQ
+- 在此感谢原作者的付出，教程非常好
+  
 ### 提交记录
+* feat: 新增摄像机边界，角色移动边界
+* feat: p22 新增音效，闪烁效果，fix: 修复角色受到固定伤害，而不是hitbox传过来的伤害的问题
+* feat: p21 新增敌人空闲时移动AI
 * feat: p20 添加摄像机随角色移动，fix: 修复血量UI不随摄像机移动的问题，修复角色死亡后摄像机归位的问题
 * feat: p19 给敌人增加软碰撞
 * feat: p18 引入树，给玩家/bush添加影子
